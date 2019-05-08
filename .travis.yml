@@ -6,7 +6,7 @@ matrix:
       env: BUILDARCH=x64
 
 before_install:
-  - apt-get install desktop-file-utils
+  - sudo apt-get install desktop-file-utils
 
 script:
   - ./build.sh
