@@ -9,6 +9,8 @@ before_install:
   - sudo apt-get install desktop-file-utils zsync
 
 script:
+  - wget -c https://github.com/AppImage/pkg2appimage/releases/download/continuous/pkg2appimage-continuous-x86_64.AppImage
+  - wget -c https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage
   - ./build.sh
 
 deploy:
@@ -22,6 +24,7 @@ after_success:
   - ls -lh out/* # Assuming you have some files in out/ that you would like to upload
   - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
   - bash upload.sh out/*
+  - appimagetool-x86_64.AppImage -u ::gh-releases-zsync|tyu1996|opera-AppImage|continuous|Opera-x86_64.AppImage.zsync
 
 branches:
   except:
