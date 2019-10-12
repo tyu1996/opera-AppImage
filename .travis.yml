@@ -24,7 +24,6 @@ after_success:
   - ls -lh out/* # Assuming you have some files in out/ that you would like to upload
   - wget -nv -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
   - bash upload.sh out/*
-  - appimagetool-x86_64.AppImage -u ::gh-releases-zsync|tyu1996|opera-AppImage|continuous|Opera-x86_64.AppImage.zsync
 
 branches:
   except:
