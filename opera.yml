@@ -1,15 +1,17 @@
 app: opera-stable
 
 ingredients:
-  dist: trusty
+  dist: xenial
   sources:
-    - deb http://archive.ubuntu.com/ubuntu/ trusty main universe
+    - deb http://archive.ubuntu.com/ubuntu/ xenial main universe
   script:
     - VERSION=$(wget -q "https://get.geo.opera.com/pub/opera/desktop/" -O - | grep href | tail -n 1 | cut -d '"' -f 2 | cut -d / -f 1)
     - wget -nv -c "https://get.geo.opera.com/pub/opera/desktop/$VERSION/linux/opera-stable_${VERSION}_amd64.deb"
     - echo $VERSION > VERSION
 
 script:
+  - VERSION=$(wget -q "https://get.geo.opera.com/pub/opera/desktop/" -O - | grep href | tail -n 1 | cut -d '"' -f 2 | cut -d / -f 1)
   - cp ./usr/share/applications/opera.desktop .
   - cp ./usr/share/icons/hicolor/256x256/apps/opera.png .
+  - sed -i "s/Opera/Opera_$VERSION/g" opera.desktop
   - sed -i -e '/TargetEnvironment/d' opera.desktop
