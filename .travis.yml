@@ -9,7 +9,7 @@ before_install:
   - sudo apt-get install desktop-file-utils zsync
 
 script:
-  - wget -nv -c https://github.com/AppImage/pkg2appimage/releases/download/continuous/pkg2appimage-continuous-x86_64.AppImage
+  - wget -nv -c https://github.com/AppImage/pkg2appimage/releases/download/continuous/pkg2appimage-1795-x86_64.AppImage
   - wget -nv -c https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage
   - ./build.sh
 
